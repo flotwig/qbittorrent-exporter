@@ -223,6 +223,50 @@ public class QbtCollector extends Collector implements QbtMetrics {
 
     // endregion
 
+    // region ServerState Metrics
+
+    private final Gauge dhtNodes = Gauge.build()
+        .name(GAUGE_NAME_PREFIX + "dht_nodes")
+        .help("Number of DHT nodes")
+        .create();
+
+    private final Gauge totalPeerConnections = Gauge.build()
+        .name(GAUGE_NAME_PREFIX + "total_peer_connections")
+        .help("Total number of peer connections")
+        .create();
+
+    private final Gauge averageTimeQueue = Gauge.build()
+        .name(GAUGE_NAME_PREFIX + "average_time_queue")
+        .help("Average time in queue")
+        .create();
+
+    private final Gauge freeSpaceOnDisk = Gauge.build()
+        .name(GAUGE_NAME_PREFIX + "free_space_on_disk_bytes")
+        .help("Free space on disk (in bytes)")
+        .create();
+
+    private final Gauge totalQueuedSize = Gauge.build()
+        .name(GAUGE_NAME_PREFIX + "total_queued_size_bytes")
+        .help("Total queued size (in bytes)")
+        .create();
+
+    private final Gauge queuedIoJobs = Gauge.build()
+        .name(GAUGE_NAME_PREFIX + "queued_io_jobs")
+        .help("Number of queued IO jobs")
+        .create();
+
+    private final Gauge totalBuffersSize = Gauge.build()
+        .name(GAUGE_NAME_PREFIX + "total_buffers_size_bytes")
+        .help("Total buffers size (in bytes)")
+        .create();
+
+    private final Gauge totalWastedSession = Gauge.build()
+        .name(GAUGE_NAME_PREFIX + "total_wasted_session_bytes")
+        .help("Total wasted session data (in bytes)")
+        .create();
+
+    // endregion
+
     private List<Gauge> getMetrics() {
         return List.of(
             appVersion,
@@ -257,7 +301,15 @@ public class QbtCollector extends Collector implements QbtMetrics {
             globalDownloadSpeedBytes,
             globalUploadSpeedBytes,
             globalRatio,
-            totalTorrents
+            totalTorrents,
+            dhtNodes,
+            totalPeerConnections,
+            averageTimeQueue,
+            freeSpaceOnDisk,
+            totalQueuedSize,
+            queuedIoJobs,
+            totalBuffersSize,
+            totalWastedSession
         );
     }
 
@@ -460,6 +512,46 @@ public class QbtCollector extends Collector implements QbtMetrics {
     @Override
     public void setGlobalRatio(double value) {
         globalRatio.set(value);
+    }
+
+    @Override
+    public void setDhtNodes(long value) {
+        dhtNodes.set(value);
+    }
+
+    @Override
+    public void setTotalPeerConnections(long value) {
+        totalPeerConnections.set(value);
+    }
+
+    @Override
+    public void setAverageTimeQueue(long value) {
+        averageTimeQueue.set(value);
+    }
+
+    @Override
+    public void setFreeSpaceOnDisk(long value) {
+        freeSpaceOnDisk.set(value);
+    }
+
+    @Override
+    public void setTotalQueuedSize(long value) {
+        totalQueuedSize.set(value);
+    }
+
+    @Override
+    public void setQueuedIoJobs(long value) {
+        queuedIoJobs.set(value);
+    }
+
+    @Override
+    public void setTotalBuffersSize(long value) {
+        totalBuffersSize.set(value);
+    }
+
+    @Override
+    public void setTotalWastedSession(long value) {
+        totalWastedSession.set(value);
     }
 
     // endregion

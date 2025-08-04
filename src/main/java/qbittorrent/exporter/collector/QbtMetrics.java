@@ -70,4 +70,20 @@ public interface QbtMetrics {
     void setGlobalRatio(double value);
 
     void setTotalTorrents(long value);
+
+    void setDhtNodes(long value);
+
+    void setTotalPeerConnections(long value);
+
+    void setAverageTimeQueue(long value);
+
+    void setFreeSpaceOnDisk(long value);
+
+    void setTotalQueuedSize(long value);
+
+    void setQueuedIoJobs(long value);
+
+    void setTotalBuffersSize(long value);
+
+    void setTotalWastedSession(long value);
 }
