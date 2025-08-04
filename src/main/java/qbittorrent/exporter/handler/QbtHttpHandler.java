@@ -53,6 +53,14 @@ public class QbtHttpHandler implements HttpHandler {
             collector.setGlobalRatio(Double.parseDouble(serverState.getGlobalRatio()));
             collector.setAppDownloadRateLimitBytes(serverState.getDlRateLimit());
             collector.setAppUploadRateLimitBytes(serverState.getUpRateLimit());
+            collector.setDhtNodes(serverState.getDhtNodes());
+            collector.setTotalPeerConnections(serverState.getTotalPeerConnections());
+            collector.setAverageTimeQueue(serverState.getAverageTimeQueue());
+            collector.setFreeSpaceOnDisk(serverState.getFreeSpaceOnDisk());
+            collector.setTotalQueuedSize(serverState.getTotalQueuedSize());
+            collector.setQueuedIoJobs(serverState.getQueuedIoJobs());
+            collector.setTotalBuffersSize(serverState.getTotalBuffersSize());
+            collector.setTotalWastedSession(serverState.getTotalWastedSession());
             collector.setAppAlternateDownloadRateLimitBytes(preferences.getAltDlLimit());
             collector.setAppAlternateUploadRateLimitBytes(preferences.getAltUpLimit());
             collector.setAppAlternateRateLimitsEnabled(serverState.isUseAltSpeedLimits());
