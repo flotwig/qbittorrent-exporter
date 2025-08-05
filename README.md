@@ -1,6 +1,6 @@
 # qbittorrent-exporter
 
-![Gradle Build](https://github.com/caseyscarborough/qbittorrent-exporter/actions/workflows/build.yaml/badge.svg) ![Release](https://github.com/caseyscarborough/qbittorrent-exporter/actions/workflows/release.yaml/badge.svg)
+![Gradle Build](https://github.com/flotwig/qbittorrent-exporter/actions/workflows/build.yaml/badge.svg) ![Release](https://github.com/flotwig/qbittorrent-exporter/actions/workflows/release.yaml/badge.svg)
 
 <img src="https://github.com/caseyscarborough/qbittorrent-grafana-dashboard/blob/master/images/logo.png" width=100> <img src="https://github.com/caseyscarborough/qbittorrent-grafana-dashboard/blob/master/images/prometheus.png" width=100>
 
@@ -10,7 +10,7 @@ for this plugin to work.
 This is especially useful when integrated with
 the [qbittorrent-grafana-dashboard](https://github.com/caseyscarborough/qbittorrent-grafana-dashboard).
 
-See it on [DockerHub](https://hub.docker.com/r/caseyscarborough/qbittorrent-exporter).
+See it on [GitHub Container Registry (GHCR)](https://github.com/flotwig/qbittorrent-exporter/pkgs/container/qbittorrent-exporter).
 
 ## Usage
 
@@ -23,7 +23,7 @@ docker run \
     -e QBITTORRENT_PASSWORD=password \
     -e QBITTORRENT_BASE_URL=http://localhost:8080 \
     -p 17871:17871 \
-    caseyscarborough/qbittorrent-exporter:latest
+    ghcr.io/flotwig/qbittorrent-exporter:master
 ```
 
 ## Parameters
